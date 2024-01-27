@@ -9,15 +9,15 @@
     },
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/saurabh5612/social-network-api.git"
+      "url": "git+https://github.com/BenBerkowitz85/social-network-api.git"
     },
     "keywords": [],
     "author": "saurabh patel",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/saurabh5612/social-network-api/issues"
+      "url": "https://github.com/BenBerkowitz85/social-network-api/issues"
     },
-    "homepage": "https://github.com/saurabh5612/social-network-api#readme",
+    "homepage": "https://github.com/BenBerkowitz85/social-network-api#readme",
     "dependencies": {
       "express": "^4.17.1",
       "moment": "^2.27.0",
