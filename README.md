@@ -1,5 +1,13 @@
 # LocalSocialVocal
 
+Description 
+
+Remember when social media was straight forward, simple, and civil? With Local Social Vocal we aim to bring back the social media platform back to the simpler days.
+
+Demo
+
+
+
 User Story
 AS A social media startup
 I WANT an API for my social network that uses a NoSQL database
@@ -14,3 +22,7 @@ WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully create, update, and delete users and thoughts in my database
 WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends t
+
+Acknowledgements 
+
+As always thank you to Kai, Karl, my group mates, youtube walk throughs, the almighty google, and Tommy OConnell who helped me configure lines of code.
