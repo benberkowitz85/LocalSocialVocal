@@ -2,7 +2,7 @@ const { Thoughts, Users } = require('../models');
 
 const thoughtsController = {
 
-    // Create a new thought
+    // New Post
     createThoughts({params, body}, res) {
         Thoughts.create(body)
             .then(({_id}) => {
@@ -18,7 +18,7 @@ const thoughtsController = {
             .catch(err => res.json(err));
     },
 
-    // Get all Thoughts
+    // See Thoughts
     getAllThoughts(req,res) {
         Thoughts.find({})
             .populate({
@@ -34,7 +34,7 @@ const thoughtsController = {
             });
     },
 
-    // Get a thought by ID
+    // See User ID Thoughts 
     getThoughtsById({params}, res) {
         Thoughts.findOne({ _id: params.id })
             .populate({
@@ -44,7 +44,7 @@ const thoughtsController = {
             .select('-__v')
             .then(dbThoughtsData => {
                 if(!dbThoughtsData) {
-                    res.status(404).json({message: 'No thoughts with this  ID!'});
+                    res.status(404).json({message: 'Uh, Uh, Ah, You Did Say The Magic Word! No thoughts with this user ID!'});
                     return;
                 }
                 res.json(dbThoughtsData)
@@ -55,7 +55,7 @@ const thoughtsController = {
             });
     },
 
-    // Update  thought by ID
+    // Update Thoughts by User ID
     updateThoughts({params, body}, res) {
         Thoughts.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
             .populate({
@@ -73,7 +73,7 @@ const thoughtsController = {
             .catch(err => res.json(err));
     },
 
-    // Delete  thought by ID
+    // Delete 
     deleteThoughts({params}, res) {
         Thoughts.findOneAndDelete({_id: params.id})
             .then(dbThoughtsData => {
@@ -86,7 +86,7 @@ const thoughtsController = {
             .catch(err => res.status(400).json(err));
     },
 
-    // Add  Reaction
+    // Add  User Reaction
     addReaction({params, body}, res) {
         Thoughts.findOneAndUpdate({_id: params.thoughtId}, {$push: {reactions: body}}, {new: true, runValidators: true})
             .populate({
@@ -105,7 +105,7 @@ const thoughtsController = {
 
     },
 
-    // Delete  by ID
+    // Delete by User iD
     deleteReaction({params}, res) {
         Thoughts.findOneAndUpdate({_id: params.thoughtId}, {$pull: {reactions: {reactionId: params.reactionId}}}, {new : true})
             .then(dbThoughtsData => {

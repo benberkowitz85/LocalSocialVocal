@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-// Set requirements from thoughts-controller
+// Thought Controllers Requirements
 const {
     getAllThoughts,
     getThoughtsById,
@@ -12,29 +12,25 @@ const {
 
 } = require('../controllers/thoughts-controller');
 
-// Directs to /api/thoughts <GET>
+// Following Routes Should Direct to API
 router
     .route('/')
     .get(getAllThoughts);
 
-//  Directs to /api/thoughts/:id <GET, PUT, DELETE>
 router
     .route('/:id')
     .get(getThoughtsById)
     .put(updateThoughts)
     .delete(deleteThoughts);
 
-//  Directs to /api/thoughts/userId <POST>
 router
     .route('/:userId')
     .post(createThoughts);
 
-// Directs to /api/thoughts/thoughtId/reactions <POST>
+// Routers for Posting and Deleting 
 router
     .route('/:thoughtId/reactions')
     .post(addReaction);
-
-//  Directs to /api/thoughts/thoughtId/reactionId <DELETE>
 router
     .route('/:thoughtId/reactions/:reactionId')
     .delete(deleteReaction);

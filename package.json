@@ -1,5 +1,5 @@
 {
-    "name": "social-network-api",
+    "name": "social-local-vocal-api",
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
@@ -9,15 +9,15 @@
     },
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/BenBerkowitz85/social-network-api.git"
+      "url": "git+https://github.com/BenBerkowitz85/social-local-vocal-api.git"
     },
     "keywords": [],
-    "author": "saurabh patel",
-    "license": "ISC",
+    "author": "Ben Berkowitz",
+    "license": "MIT",
     "bugs": {
-      "url": "https://github.com/BenBerkowitz85/social-network-api/issues"
+      "url": "https://github.com/BenBerkowitz85/social-local-vocal-api/issues"
     },
-    "homepage": "https://github.com/BenBerkowitz85/social-network-api#readme",
+    "homepage": "https://github.com/BenBerkowitz85/social-local-vocal-api#readme",
     "dependencies": {
       "express": "^4.17.1",
       "moment": "^2.27.0",

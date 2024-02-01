@@ -10,14 +10,14 @@ app.use(express.static('public'));
 
 app.use(require('./routes'));
 
-// Connect mongoose
+// Connect To The Goose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-api', {
     useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
 
-// Use this to log mongo queries being executed
+// Log Quieries To The Goose
 mongoose.set('debug', true);
 
 app.listen(PORT, () => console.log(` Connected on localhost:${PORT}`));
