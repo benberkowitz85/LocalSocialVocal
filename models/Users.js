@@ -33,12 +33,12 @@ const UsersSchema = new Schema(
     }
 );
 
-//virtual that retrieves length of the user's friends array
+//Receive Friend Array
 UsersSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
 
-// create the Users model using the Users Schema
+// User Schema
 const Users = model('Users', UsersSchema);
 
 
