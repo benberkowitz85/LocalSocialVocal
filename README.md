@@ -2,7 +2,7 @@
 
 Description 
 
-Remember when social media was straight forward, simple, and civil? With Local Social Vocal we aim to bring back the social media platform back to the simpler days.
+Remember when social media was straight forward, simple, and civil? With Social Local Vocal we aim to bring back the social media platform back to the simpler days.
 
 Demo
 
