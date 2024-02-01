@@ -1,6 +1,6 @@
 const { Users } = require('../models');
 
-// Set up Users Controller
+// Set up New User Controller
 const usersController = {
 
     // Create a new User
@@ -10,15 +10,15 @@ const usersController = {
             .catch(err => res.status(400).json(err));
     },
 
-    // Get All Users
+    // Retrieve All Users
     getAllUsers(req, res) {
         Users.find({})
-        // populate users thoughts
+        // Populate User Thought
             .populate({
                 path: 'thoughts',
                 select: '-__v'
             })
-            // populate user friends
+            // Populate Friend 
             .populate({
                 path: 'friends',
                 select: '-__v'
@@ -32,7 +32,7 @@ const usersController = {
             });
     },
 
-    // Get single user by ID
+    // Find User ID
     getUsersById({params}, res) {
         Users.findOne({_id: params.id })
             .populate({
@@ -44,10 +44,10 @@ const usersController = {
                 select: '-__v'
             })
             .select('-__v')
-            // return if no user is found
+            // Alert If No User Is Located
             .then(dbUsersData => {
                 if(!dbUsersData) {
-                    res.status(404).json({message: 'No User with this id!'});
+                    res.status(404).json({message: 'This individual does not exist! Go Make A New Friend, Read A Book, or Try Spelling Their Name Correctly.'});
                     return;
                 }
                 res.json(dbUsersData)
@@ -58,7 +58,7 @@ const usersController = {
             })
     },
 
-    // Update a current User by ID
+    // Update User Info
     updateUsers({params, body}, res) {
         Users.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
             .then(dbUsersData => {
@@ -100,7 +100,7 @@ const usersController = {
             .catch(err => res.json(err));
     },
 
-    // Delete a current Friend
+    // Delete Former Friend
     deleteFriend({ params }, res) {
         Users.findOneAndUpdate({_id: params.id}, {$pull: { friends: params.friendId}}, {new: true})
             .populate({
