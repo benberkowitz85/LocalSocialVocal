@@ -10,7 +10,7 @@ const thoughtsController = {
             })
             .then(dbThoughtsData => {
                 if(!dbThoughtsData) {
-                    res.status(404).json({message: 'No thoughts with this ID!'});
+                    res.status(404).json({message: 'Unable To Locate Thoughts With This ID! Please Try Again.'});
                     return;
                 }
                 res.json(dbThoughtsData)
@@ -65,7 +65,7 @@ const thoughtsController = {
             .select('-___v')
             .then(dbThoughtsData => {
                 if (!dbThoughtsData) {
-                    res.status(404).json({message: 'No thoughts with this  ID!'});
+                    res.status(404).json({message: 'Unable To Locate Thoughts With This ID! Please Try Again.'});
                     return;
                 }
                 res.json(dbThoughtsData);
@@ -73,12 +73,12 @@ const thoughtsController = {
             .catch(err => res.json(err));
     },
 
-    // Delete 
+    // Delete User Thought
     deleteThoughts({params}, res) {
         Thoughts.findOneAndDelete({_id: params.id})
             .then(dbThoughtsData => {
                 if (!dbThoughtsData) {
-                    res.status(404).json({message: 'No thoughts with this  ID!'});
+                    res.status(404).json({message: 'Unable To Locate Thoughts With This ID! Please Try Again. '});
                     return;
                 }
                 res.json(dbThoughtsData);
@@ -86,7 +86,7 @@ const thoughtsController = {
             .catch(err => res.status(400).json(err));
     },
 
-    // Add  User Reaction
+    // User Reaction
     addReaction({params, body}, res) {
         Thoughts.findOneAndUpdate({_id: params.thoughtId}, {$push: {reactions: body}}, {new: true, runValidators: true})
             .populate({
@@ -105,7 +105,7 @@ const thoughtsController = {
 
     },
 
-    // Delete by User iD
+    // Delete The User ID
     deleteReaction({params}, res) {
         Thoughts.findOneAndUpdate({_id: params.thoughtId}, {$pull: {reactions: {reactionId: params.reactionId}}}, {new : true})
             .then(dbThoughtsData => {
