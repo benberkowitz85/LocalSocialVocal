@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.use(require('./routes'));
 
 // Connect To The Goose
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-api', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-local-vocal-api', {
     useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true

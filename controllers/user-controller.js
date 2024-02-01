@@ -63,7 +63,7 @@ const usersController = {
         Users.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
             .then(dbUsersData => {
                 if(!dbUsersData) {
-                    res.status(404).json({message: 'No User with this id!'});
+                    res.status(404).json({message: 'This individual does not exist! Go Make A New Friend, Read A Book, or Try Spelling Their Name Correctly.'});
                     return;
                 }
                 res.json(dbUserData);
@@ -75,7 +75,7 @@ const usersController = {
         Users.findOneAndDelete({_id: params.id})
             .then(dbUsersData => {
                 if(!dbUsersData) {
-                    res.status(404).json({message: 'No User with this id!'});
+                    res.status(404).json({message: 'This individual does not exist! Go Make A New Friend, Read A Book, or Try Spelling Their Name Correctly.'});
                     return;
                 }
                 res.json(dbUsersData);
@@ -92,7 +92,7 @@ const usersController = {
             .select('-__v')
             .then(dbUsersData => {
                 if (!dbUsersData) {
-                    res.status(404).json({message: 'No User with this id!'});
+                    res.status(404).json({message: 'This individual does not exist! Go Make A New Friend, Read A Book, or Try Spelling Their Name Correctly.'});
                     return;
                 }
                 res.json(dbUsersData);
@@ -110,7 +110,7 @@ const usersController = {
             .select('-__v')
             .then(dbUsersData => {
                 if(!dbUsersData) {
-                    res.status(404).json({message: 'No User with this id!'});
+                    res.status(404).json({message: 'This individual does not exist! Go Make A New Friend, Read A Book, or Try Spelling Their Name Correctly.'});
                     return;
                 }
                 res.json(dbUsersData);
